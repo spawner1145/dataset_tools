@@ -134,7 +134,7 @@ def save_tags_to_file(image_path, new_tags, fixed_prefix):
         print(f"标签文件已存在且无新标签可添加: {txt_path}")
 
 def main():
-    API_BASE_URL = "https://u259632-be52-5d9841ca.bjc1.seetacloud.com:8443/tagger/v1"  # API服务地址
+    API_BASE_URL = "https://127.0.0.1:7860/tagger/v1"  # API服务地址
     IMAGE_FOLDER = "教義 Dogma 素材"                       # 图片文件夹路径
     MODEL_NAME = "wd14-eva02-large-v3-git"         # 要使用的模型名称
     THRESHOLD = 0.35                               # 通用标签阈值
@@ -201,4 +201,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
     
