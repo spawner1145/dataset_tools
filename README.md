@@ -9,3 +9,5 @@ tools for dataset to train loras
 - 用`delete_useless_txt.py`来把多出来的txt清理一下
 - 用`tagger_api.py`给图片打标，部署的tagger是`https://github.com/spawner1145/wd14-inference-webui.git`这个项目或者webui的wd14插件，api填`https://127.0.0.1:7860/tagger/v1`这种
 - 打完标以后用`check_matches.py`确认一下txt和img一一对应了
+
+> 2026.1.18 更新: 双击运行`run_webui.bat`有了一个webui，内部有各种集成功能，自己看吧，编辑bat文件可以更改启动的端口

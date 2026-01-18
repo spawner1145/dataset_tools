@@ -292,6 +292,30 @@ async def main(txt_path, save_dir="downloaded_images", timeout=1000, proxies=Non
     print("\n所有标签处理完成！")
     return None
 
+async def run_downloader(txt_path, save_dir, timeout=5000, proxies=None, max_lines_per_batch=5, max_images=50, start_line=1, download_videos=False, download_gifs=False):
+    while True:
+        result = await main(
+            txt_path=txt_path,
+            save_dir=save_dir,
+            timeout=timeout,
+            proxies=proxies,
+            start_line=start_line,
+            max_lines_per_batch=max_lines_per_batch,
+            max_images=max_images,
+            download_videos=download_videos,
+            download_gifs=download_gifs
+        )
+        if result is None:
+            break
+        else:
+            start_line = result
+        
+        with open(txt_path, 'r', encoding='utf-8') as f:
+            total_lines = sum(1 for line in f if line.strip())
+        if start_line > total_lines:
+            print(f"\n已处理完所有 {total_lines} 个有效标签，退出脚本。")
+            break
+
 if __name__ == "__main__":
     txt_path = "cailin.txt"  # 包含标签的TXT文件，每行一个标签组合
     save_dir = "downloaded_images1"  # 保存目录

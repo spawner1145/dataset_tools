@@ -29,7 +29,14 @@ def process_tag_file(input_path, output_path, drop_rates):
 
 def process_all_files(input_dir, output_dir, drop_rates):
     os.makedirs(output_dir, exist_ok=True)
+    
+    # 保护列表
+    PROTECTED_FILES = {'requirements.txt', 'cailin.txt', 'README.txt', 'LICENSE.txt', 'prompts.txt', 'config.txt'}
+
     for filename in os.listdir(input_dir):
+        if filename in PROTECTED_FILES:
+            continue
+
         if filename.endswith('.txt'):
             input_path = os.path.join(input_dir, filename)
             output_path = os.path.join(output_dir, filename)

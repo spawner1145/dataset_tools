@@ -1,0 +1,9 @@
+streamlit
+Pillow
+imagehash
+httpx<=0.28.0
+aiofiles
+beautifulsoup4
+requests
+watchdog
+lxml

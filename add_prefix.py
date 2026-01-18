@@ -14,8 +14,16 @@ def batch_add_prefix_to_txt(folder_path, prefix):
     
     print(f"找到 {len(txt_files)} 个txt文件，开始添加前缀...\n")
     
+    # 保护列表
+    PROTECTED_FILES = {'requirements.txt', 'cailin.txt', 'README.txt', 'LICENSE.txt', 'prompts.txt', 'config.txt'}
+
     for i, txt_path in enumerate(txt_files, 1):
         filename = os.path.basename(txt_path)
+        
+        if filename in PROTECTED_FILES:
+            print(f"跳过保护文件: {filename}")
+            continue
+
         print(f"处理文件 {i}/{len(txt_files)}: {filename}")
         
         try:
