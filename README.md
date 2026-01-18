@@ -11,3 +11,5 @@ tools for dataset to train loras
 - 打完标以后用`check_matches.py`确认一下txt和img一一对应了
 
 > 2026.1.18 更新: 双击运行`run_webui.bat`有了一个webui，内部有各种集成功能，自己看吧，编辑bat文件可以更改启动的端口
+
+> comfy-api-backup 库引用自 https://github.com/spawner1145/comfy-api-backup.git
