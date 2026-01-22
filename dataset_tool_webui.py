@@ -761,9 +761,9 @@ def render_tagger():
                             pass # 读取失败就直接覆盖吧
                     
                     # 添加前缀
-                    content_str = ", ".join(final_tags)
+                    content_str = ",".join(final_tags)
                     if fixed_prefix and not content_str.startswith(fixed_prefix):
-                         content_str = f"{fixed_prefix}, {content_str}"
+                         content_str = f"{fixed_prefix},{content_str}"
                          
                     with open(txt_path, 'w', encoding='utf-8') as f:
                         f.write(content_str)
